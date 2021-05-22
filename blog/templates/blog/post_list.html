@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BD Blog</title>
-</head>
-<body>
-    <h1><a href="/">Billy's Blog</a></h1>
-
+{% extends 'blog/base.html' %}
+{% block content %}
     {% for post in posts %}
-        <div>
-            <h3 style="color: blue">{{ post.author }}</h3>
-            <p>Published {{ post.publish_date }}</p>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
-            <p>{{ post.text }}</p>
+        <div class="post">
+            <div class="date">
+                <p>Published {{ post.publish_date }}</p>
+            </div>
+            <h3><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h3>
         </div>
     {% endfor %}
+{% endblock %}
 
-
-
-</body>
-</html>
