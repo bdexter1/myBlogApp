@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <h4><a href="/">Home</a></h4>
+</head>
+<body>
+  {% if post.publish_date %}
+    <div>
+      {{post.publish_date}}
+    </div>
+  {% endif %}
+<h2>{{post.title}}</h2>
+<p>{{ post.text|linebreaksbr }}</p>
+</body>
+</html>

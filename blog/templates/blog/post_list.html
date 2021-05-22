@@ -7,12 +7,12 @@
 <body>
     <h1><a href="/">Billy's Blog</a></h1>
 
-    {% for posts in posts %}
+    {% for post in posts %}
         <div>
-            <h3 style="color: blue">{{ posts.author }}</h3>
-            <p>Published {{ posts.publish_date }}</p>
-            <p>{{ posts.title }}</p>
-            <p>{{ posts.text }}</p>
+            <h3 style="color: blue">{{ post.author }}</h3>
+            <p>Published {{ post.publish_date }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+            <p>{{ post.text }}</p>
         </div>
     {% endfor %}
 
