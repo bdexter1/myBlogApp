@@ -45,6 +45,18 @@ def post_edit(request, pk):
             post.save()
             return redirect('post_list')
     else:
-        form = PostForm(instance=post)# otherwise show the existing blog post
+        form = PostForm(instance=post)  # otherwise show the existing blog post
         stuff_for_frontend = {'form': form}
     return render(request, 'blog/post_edit.html', stuff_for_frontend)
+
+
+def post_draft_list(request):
+    posts = Post.objects.filter(publish_date__isnull=True).order_by('-content_date')
+    stuff_for_frontend = {'posts': posts}
+    return render(request, 'blog/post_draft_list.html', stuff_for_frontend)
+
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post.detail', pk=pk)
