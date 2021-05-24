@@ -39,3 +39,9 @@ h4 {
 .post-form-blog .btn-primary {
     float: right;
 }
+.top-menu, .top-menu:hover {
+    color: #ffffff;
+    float: right;
+    font-size: 26px;
+    margin-right: 20px;
+}
